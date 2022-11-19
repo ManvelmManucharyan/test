@@ -1,12 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors")
 const sequelize = require("./db/index");
-const bodyParser = require("body-parser");
 const router = require("./routers/index");
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors({origin: "*"}));
 app.use("/", router);
 
 const start = async () => {

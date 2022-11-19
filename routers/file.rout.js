@@ -1,11 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const UserController = require('../controllers/user.controller');
+const FileController = require("../controllers/file.controller");
 const auth = require("../auth/auth");
+const Load = require("../db/load");
 
-router.post("/signup", UserController.register);
-router.post("/signin", UserController.login);
-router.get("/info", auth.authenticateToken, UserController.info);
-router.get("/logout", auth.authenticateToken, UserController.logout);
+router.get("/:id", auth.authenticateToken, FileController.getOneFile);
+router.get("/download/:id", auth.authenticateToken, FileController.download);
+router.post("/upload", auth.authenticateToken, Load.upload.single("file"), FileController.upload);
+router.delete("/delete/:id", auth.authenticateToken, FileController.delete);
 
 module.exports = router;
