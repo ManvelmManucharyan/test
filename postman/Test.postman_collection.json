@@ -263,7 +263,7 @@
 		{
 			"name": "New Token",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
 					"raw": "localhost:3000/signin/new_token",
