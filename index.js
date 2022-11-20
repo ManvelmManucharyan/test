@@ -13,15 +13,15 @@ app.use(cors({ origin: "*" }));
 app.use("/", router);
 
 const start = async () => {
-  try {
-    app.listen(process.env.PORT, () => {
-      console.log(`Server listening on ${process.env.PORT}`);
-    });
-    await sequelize.authenticate();
-    console.log("Database successfully created");
-  } catch (err) {
-    console.log(err);
-  }
+    try {
+        app.listen(process.env.PORT, () => {
+            console.log(`Server listening on ${process.env.PORT}`);
+        });
+        await sequelize.authenticate();
+        console.log("Database successfully created");
+    } catch (err) {
+        console.log(err);
+    }
 };
 
 start();

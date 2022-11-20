@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "51c5255f-e89f-434a-8bba-9a32d0187ffa",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21001664"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email@gmail.com\",\n    \"phoneNumber\": \"99999999\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJMZXZpIiwiZW1haWwiOiJhb3RAZ21haWwuY29tIiwiaWF0IjoxNjY4OTMzNjk1LCJleHAiOjE2Njg5MzQyOTV9.FzklNAnyUFaRmTsa0yn4s7w-Tx9yGXZSoUIuDc0Lfm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"email@gmail.com\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File Upload",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IlJhem1payIsImVtYWlsIjoicmF6QGdtYWlsLmNvbSIsImlhdCI6MTY2ODkzNzIzOSwiZXhwIjoxNjY4OTM3ODM5fQ.Mtry72fcVaWlNXV-kbd2gHy5MQaCvuWeIgzZv7lg5DE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/manvel/Ներբեռնումներ/tree-736885_960_720.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/file/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:3000/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/info",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find File By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJMZXZpIiwiZW1haWwiOiJhb3RAZ21haWwuY29tIiwiaWF0IjoxNjY4OTMzNjk1LCJleHAiOjE2Njg5MzQ4OTV9.AkZDt1pwtXE9QouhG9tmSc1yQdiEYsazg6CeW1HvKsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/file/6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/file/download/14",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"download",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get File List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IlJhem1payIsImVtYWlsIjoicmF6QGdtYWlsLmNvbSIsImlhdCI6MTY2ODkzNzIzOSwiZXhwIjoxNjY4OTM3ODM5fQ.Mtry72fcVaWlNXV-kbd2gHy5MQaCvuWeIgzZv7lg5DE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/file/list?list_size=&page=",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"list"
+					],
+					"query": [
+						{
+							"key": "list_size",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/signin/new_token",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signin",
+						"new_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update File",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJMZXZpIiwiZW1haWwiOiJhb3RAZ21haWwuY29tIiwiaWF0IjoxNjY4OTMxNTk5LCJleHAiOjE2Njg5MzIxOTl9.pvcb2yriL1q3gCCaVFGLsKgTL1-b50mZaLr62Qi5eWE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/manvel/Ներբեռնումներ/CV_2022-09-15_Manvel_Manucharyan.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/file/update/15",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"update",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete File",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/file/delete/16",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"file",
+						"delete",
+						"16"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

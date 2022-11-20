@@ -1,5 +1,6 @@
 require("dotenv").config();
 var jwt = require("jsonwebtoken");
+const File = require("../models/files.js");
 
 class JWT {
     static jwtSign(user) {
@@ -10,22 +11,22 @@ class JWT {
 
     static async authenticateToken(req, res, next) {
         let authToken = req.cookies.token;
-        req.headers["authorization"] = `Bearer ${authToken}`
+        req.headers["authorization"] = `Bearer ${authToken}`;
         if(!authToken || authToken === "undefined") return res.status(403).send("Please login");
         let user, error;
         jwt.verify(authToken, process.env.JWT_SECRET, (err, u) => {
-            if(err) {error = err.name}
-            else {user = u}
+            if(err) {error = err.name;}
+            else {user = u;}
         });
         if(error) {
             error = undefined;
             authToken = req.cookies.refreshToken;
             jwt.verify(authToken, process.env.JWT_SECRET, (err, u) => {
-                if(err) {error = err.name}
-                else {user = u}
+                if(err) {error = err.name;}
+                else {user = u;}
             });
             if(error) {
-                return res.send("Token Expired");
+                return res.status(400).send("Token Expired");
             }
             const result = JWT.jwtSign(user);
             res.cookie("token", result.authToken);
@@ -39,6 +40,14 @@ class JWT {
             req.user = user;
             next();
         }
+    }
+
+    static async checkFile (req, res, next) {
+        const file = await File.findByPk(req.params.id);
+        if(!file) {
+            return res.status(404).send("File doesn't exist");
+        }
+        next();
     }
 }
 

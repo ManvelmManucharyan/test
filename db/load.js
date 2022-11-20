@@ -10,15 +10,15 @@ class Load {
             cb(null, "files");
         },
         filename: (req, file, cb) => {
-            file.originalname = `${uniqid()}${uniqid()}${file.originalname}`
+            file.originalname = `${uniqid()}${uniqid()}${file.originalname}`;
             cb(null, file.originalname);
         }
-    })
+    });
     
-    static upload = multer({ storage: this.storage })
+    static upload = multer({ storage: this.storage });
 
-    static deleteFile(filename) {
-        fs.unlinkSync(path.join(`files`, `${filename}`), (err) => {
+    static async deleteFile(filename) {
+        fs.unlinkSync(path.join("files", `${filename}`), (err) => {
             if (err) throw err;
         });
     }
