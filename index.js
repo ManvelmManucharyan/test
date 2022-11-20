@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-var cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const sequelize = require("./db/index");
 const router = require("./routers/index");
