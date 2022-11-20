@@ -9,7 +9,7 @@
 		{
 			"name": "Signup",
 			"request": {
-				"method": "POST",sv
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
