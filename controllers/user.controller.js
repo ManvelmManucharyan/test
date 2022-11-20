@@ -28,8 +28,7 @@ class UserController {
                 } else {
                     res.cookie("token", result.authToken);
                     res.cookie("refreshToken", result.refreshToken);
-                    const { password, ...u } = user.dataValues;
-                    res.send(u);
+                    res.send(result);
                 }
             }
         } catch (error) {
