@@ -23,7 +23,7 @@
           return: new authToken and refreshToken, and deletes previous ones from cookies
 ### /file/upload: [POST]
           take: file by key name "file"
-          return: answer about process
+          return: upload file in folder by name "files"(create if not exist) and answers about process success
 ### /file/id: [GET]
           take: file id in params
           return: information about file from database
