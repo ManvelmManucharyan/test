@@ -1,13 +1,15 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors")
+var cookieParser = require("cookie-parser");
+const cors = require("cors");
 const sequelize = require("./db/index");
 const router = require("./routers/index");
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json());
-app.use(cors({origin: "*"}));
+app.use(cors({ origin: "*" }));
 app.use("/", router);
 
 const start = async () => {

@@ -5,7 +5,7 @@ const JWT = require("../auth/auth");
 const { Op } = require("sequelize");
 
 class UserService {
-    static async register(body) {
+    static async signup(body) {
         body.password = await bcrypt.hash(body.password);
         const newUser = await User.build(new UserDto(body));
         await newUser.save();
@@ -13,7 +13,7 @@ class UserService {
         return token;
     }
 
-    static async login(body, user) {
+    static async signin(body, user) {
         const auth = await bcrypt.compare(body.password, user.password);
         if(!auth){
             return false;
