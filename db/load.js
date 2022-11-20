@@ -7,6 +7,7 @@ const uniqid = require("uniqid");
 class Load {
     static storage = multer.diskStorage({
         destination: (req, file, cb) => {
+            fs.mkdirSync("files", { recursive: true });
             cb(null, "files");
         },
         filename: (req, file, cb) => {
