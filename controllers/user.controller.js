@@ -3,6 +3,9 @@ const UserService = require("../services/user.service");
 class UserController {
     static async signup(req, res) {
         try {
+            if(!req.body.email || !req.body.password || !req.body.phoneNumber || !req.body.name || Object.keys(req.body).length > 4 ) {
+                res.status(400).send("Please fill fields right");
+            }
             const userByEmail = await UserService.findByEmail(req.body.email);
             const userByPhoneNumber = await UserService.findByPhoneNumber(req.body.phoneNumber);
             if(userByEmail || userByPhoneNumber) {
@@ -18,6 +21,9 @@ class UserController {
 
     static async signin(req, res) {
         try {
+            if(!req.body.id || !req.body.password || Object.keys(req.body).length > 2) {
+                res.status(400).send("Please fill fields right");
+            }
             const user = await UserService.findByLogin(req.body.id);
             if(!user) {
                 return res.status(400).send("Wrong login or password");
